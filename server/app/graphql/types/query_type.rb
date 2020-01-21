@@ -5,6 +5,7 @@ module Types
     field :brands,    [BrandType],    null: false
     field :orders,    [OrderType],    null: false
     field :products,  [ProductType],  null: false
+    field :product,   [ProductType],  null: false
 
     def links
       Link.all
@@ -12,6 +13,10 @@ module Types
 
     def products
       Product.all
+    end
+
+    def product(id)
+      Product.find(id)
     end
 
     def brands
