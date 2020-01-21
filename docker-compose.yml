@@ -26,6 +26,8 @@ services:
     depends_on: 
       - postgres
       - app
+    environment: 
+      BACKEND_URL: "server/graphiql"
 
 volumes: 
     postgres_volume:
