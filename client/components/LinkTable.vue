@@ -4,23 +4,19 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Product Name</th>
-                    <th>Details</th>
-                    <th>Amount</th>
-                    <th>Last Update</th>
+                    <th>Url</th>
+                    <th>Description</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="list of products" :key="list.id">
+                <tr v-for="list of links" :key="list.id">
                     <td>{{ list.id }}</td>
-                    <td>{{ list.name }}</td>
+                    <td>{{ list.url }}</td>
                     <td>{{ list.description }}</td>
-                    <td>{{ list.amount }}</td>
-                    <td>{{ list.updatedAt }}</td>
-                    <th>
+                    <td>
                         <button class="btn btn-white">Edit</button>
-                    </th>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -28,17 +24,17 @@
 </template>
 
 <script>
-import ProductsQuery from "~/apollo/all_product.gql"
+import LinksQuery from "~/apollo/all_link.gql"
 
 export default {
     data: () => ({
-        products: [],
+        links: [],
         table: "table table-sm table-striped"
     }),
     apollo: {
-        products: {
+        links: {
             prefetch: true,
-            query: ProductsQuery
+            query: LinksQuery
         }
     }
 }

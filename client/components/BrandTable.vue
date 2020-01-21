@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 p-3 mb-3 shadow-sm rounded">
+    <div class="col-12 p-3 mb-3">
         <table :class="table">
             <thead>
                 <tr>
@@ -33,7 +33,7 @@ import BrandsQuery from "~/apollo/all_brand.gql"
 export default {
     data: () => ({
         brands: [],
-        table: "table table-striped"
+        table: "table table-sm table-striped"
     }),
     apollo: {
         brands: {

@@ -4,18 +4,18 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Order Name</th>
                     <th>Product Name</th>
-                    <th>Details</th>
                     <th>Amount</th>
                     <th>Last Update</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="list of products" :key="list.id">
+                <tr v-for="list of orders" :key="list.id">
                     <td>{{ list.id }}</td>
                     <td>{{ list.name }}</td>
-                    <td>{{ list.description }}</td>
+                    <td>{{ list.product }}</td>
                     <td>{{ list.amount }}</td>
                     <td>{{ list.updatedAt }}</td>
                     <th>
@@ -28,17 +28,17 @@
 </template>
 
 <script>
-import ProductsQuery from "~/apollo/all_product.gql"
+import OrderTable from "~/apollo/all_order.gql"
 
 export default {
     data: () => ({
-        products: [],
+        orders: [],
         table: "table table-sm table-striped"
     }),
     apollo: {
-        products: {
+        orders: {
             prefetch: true,
-            query: ProductsQuery
+            query: OrderTable
         }
     }
 }

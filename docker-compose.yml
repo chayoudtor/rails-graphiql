@@ -27,7 +27,7 @@ services:
       - postgres
       - app
     environment: 
-      BACKEND_URL: "server/graphiql"
+      BACKEND_URL: "server/graphql"
 
 volumes: 
     postgres_volume:

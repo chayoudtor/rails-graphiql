@@ -40,8 +40,10 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
+    '@nuxtjs/markdownit',
     '@nuxtjs/apollo'
   ],
+  // apollo
   apollo: {  
     clientConfigs: {
       default: {
