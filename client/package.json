@@ -5,6 +5,7 @@
   "author": "Tor",
   "private": true,
   "scripts": {
+    "dev": "nuxt",
     "build": "nuxt build --modern=server",
     "start": "nuxt start",
     "prod": "yarn build && yarn start"
