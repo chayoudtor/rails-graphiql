@@ -1,11 +1,8 @@
 
 export default {
-  mode: 'universal',
-  /*
-  ** Headers of the page
-  */
+  mode: 'spa',
   head: {
-    title: "Nuxt Learning !",
+    title: 'Nuxt Learning !',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -15,49 +12,30 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
   css: [
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
   buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module'
   ],
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
-    '@nuxtjs/markdownit',
+    '@nuxtjs/axios',
     '@nuxtjs/apollo'
   ],
-  // apollo
-  apollo: {  
+  apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://localhost:8080/graphql" || process.env.BACKEND_URL
+        httpEndpoint: 'http://localhost:8080/graphql'
       }
     }
   },
-  /*
-  ** Build configuration
-  */
+  axios: {
+  },
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend (config, ctx) {
     }
   }

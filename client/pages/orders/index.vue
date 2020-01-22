@@ -1,5 +1,5 @@
 <template>
-  <span>Hello</span>
+  <span>Orders List page.</span>
 </template>
 
 <script>

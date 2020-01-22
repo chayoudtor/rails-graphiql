@@ -1,5 +1,5 @@
 <template>
-  <span>Hello</span>
+  <span>Products List page.</span>
 </template>
 
 <script>

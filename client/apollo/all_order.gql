@@ -1,9 +1,0 @@
-query Orders {
-  orders {
-    id,
-    name,
-    product,
-    amount,
-    updatedAt
-  }
-}

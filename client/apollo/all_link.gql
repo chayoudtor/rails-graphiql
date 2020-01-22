@@ -1,7 +1,0 @@
-query Links {
-  links {
-    id,
-    url,
-    description
-  }
-}

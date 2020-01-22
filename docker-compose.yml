@@ -17,19 +17,13 @@ services:
       - postgres
   
   client:
-    image: node:10.16.3
+    build: ./client
     restart: always
-    working_dir: /code
-    volumes: 
-      - ./client:/code
     ports: 
       - "80:3000"
-    command: yarn prod
+    command: yarn start
     depends_on: 
-      - postgres
       - app
-    environment: 
-      BACKEND_URL: "http://app:8080/graphql"
-
+      
 volumes: 
     postgres_volume:

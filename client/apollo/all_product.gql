@@ -1,9 +1,0 @@
-query Products {
-  products {
-    id,
-    name,
-    description,
-    amount,
-    updatedAt
-  }
-}
