@@ -35,8 +35,8 @@
 export default {
   props: {
     listQuery: {
-      type: Object,
-      default: Object
+      type: Array,
+      default: Array
     }
   },
   data: () => ({
@@ -48,10 +48,10 @@ export default {
       return el !== '__typename'
     },
     editItem: (id, name) => {
-      window.location.href = '/' + name + '/id=' + id + '/edit'
+      window.location.href = '/' + name + '/edit' + '/?id=' + id
     },
     delItem: (id, name) => {
-      window.location.href = '/' + name + '/id=' + id + '/del'
+      window.location.href = '/' + name + '/del' + '/?id=' + id
     }
   }
 }
