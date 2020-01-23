@@ -1,5 +1,6 @@
 module Mutations
     class UpdateBrand < BaseMutation
+        argument :id,           ID,     required: true
         argument :name,     String,     required: true
         argument :amount,   Integer,    required: true
 

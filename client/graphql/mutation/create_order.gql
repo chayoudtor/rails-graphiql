@@ -1,0 +1,7 @@
+mutation {
+  createOrder (
+    name: $name, product: $product, amount: $amount
+  ) {
+    name, product, amount
+  }
+}

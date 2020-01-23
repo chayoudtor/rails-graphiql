@@ -1,0 +1,7 @@
+mutation {
+	updateProduct (
+    id: $id, name: $name, amount: $amount
+  ) {
+    id, name, amount
+  }
+}

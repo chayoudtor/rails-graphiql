@@ -1,0 +1,7 @@
+mutation {
+  createLink (
+    url: $url, description: $description
+  ) {
+    url, description
+  }
+}

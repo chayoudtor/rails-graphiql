@@ -1,0 +1,5 @@
+mutation {
+  deleteLink (id: $id) {
+    id
+  }
+}

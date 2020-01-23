@@ -1,0 +1,7 @@
+mutation {
+  createBrand (
+    name: $name, amount: $amount
+  ) {
+    name, amount
+  }
+}

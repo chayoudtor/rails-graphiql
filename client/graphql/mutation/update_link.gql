@@ -1,0 +1,7 @@
+mutation {
+  updateLink (
+    id: $id, url: $url, description: $description
+  ) {
+    id, url, description
+  }
+}

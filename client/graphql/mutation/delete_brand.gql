@@ -1,0 +1,5 @@
+mutation {
+  deleteBrand (id: $id) {
+    id
+  }
+}

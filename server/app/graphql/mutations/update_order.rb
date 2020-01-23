@@ -1,8 +1,9 @@
 module Mutations
     class UpdateOrder < BaseMutation
-        argument :name,     ID,     required: true
-        argument :product,  String, required: false
-        argument :amount,   String, required: false
+        argument :id,       ID,         required: true
+        argument :name,     String,     required: true
+        argument :product,  String,     required: false
+        argument :amount,   Integer,    required: false
 
         type Types::OrderType
 

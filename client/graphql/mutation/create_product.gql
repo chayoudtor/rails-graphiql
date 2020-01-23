@@ -1,0 +1,7 @@
+mutation {
+  createProduct (
+    name: $name, description: $description, amount: $amount
+  ) {
+    name, description, amount
+  }
+}
