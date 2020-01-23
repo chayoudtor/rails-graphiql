@@ -1,0 +1,8 @@
+query Orders($id: ID!){
+  order(id: $id) {
+    id,
+    name,
+    product,
+    amount
+  }
+}

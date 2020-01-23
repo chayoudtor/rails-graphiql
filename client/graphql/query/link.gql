@@ -1,0 +1,7 @@
+query Links($id: ID!){
+  link(id: $id) {
+    id,
+    url,
+    description
+  }
+}

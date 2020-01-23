@@ -1,0 +1,7 @@
+query Brands($id: ID!) {
+  brand (id: $id) {
+    id,
+    name,
+    amount
+  }
+}
