@@ -1,16 +1,21 @@
 <template>
   <div>
-    {{ $route.query.id }}
+    <BrandForms :action="action" />
   </div>
 </template>
 
 <script>
-import queryBrand from "~/graphql/query/brand.gql"
+import queryBrand from '~/graphql/query/brand.gql'
+import BrandForms from '~/components/BrandForms.vue'
 export default {
   layout: 'form_default',
-  data() {
+  components: {
+    BrandForms
+  },
+  data () {
     return {
-      brand: []
+      brand: [],
+      action: 'Edit'
     }
   },
   apollo: {

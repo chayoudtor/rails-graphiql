@@ -1,16 +1,21 @@
 <template>
   <div>
-    {{ $route.query.id }}
+    <ProductForms :action="action" />
   </div>
 </template>
 
 <script>
-import queryProduct from "~/graphql/query/product.gql"
+import ProductForms from '~/components/ProductForms.vue'
+import queryProduct from '~/graphql/query/product.gql'
 export default {
   layout: 'form_default',
-  data() {
+  components: {
+    ProductForms
+  },
+  data () {
     return {
-      product: []
+      product: [],
+      action: 'Edit'
     }
   },
   apollo: {

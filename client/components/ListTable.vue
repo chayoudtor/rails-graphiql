@@ -24,7 +24,7 @@
     </table>
 
     <div>
-      <button :class="btn_create">
+      <button :class="btn_create" @click="createItem($route.name)">
         Create {{ $route.name.charAt(0).toUpperCase() + $route.name.slice(1) }}
       </button>
     </div>
@@ -46,6 +46,9 @@ export default {
   methods: {
     filterColumn: (el) => {
       return el !== '__typename'
+    },
+    createItem: (page) => {
+      window.location.href = page + '/new'
     },
     editItem: (id, name) => {
       window.location.href = '/' + name + '/edit' + '/?id=' + id

@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <nav class="navbar navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-light bg-light shadow-sm mb-3">
       <button @click="backTo" class="btn btn-light btn-sm">
         Back
       </button>

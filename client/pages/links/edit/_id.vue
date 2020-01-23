@@ -1,16 +1,21 @@
 <template>
   <div>
-    {{ $route.query.id }}
+    <LinkForms :action="action" />
   </div>
 </template>
 
 <script>
-import queryLink from "~/graphql/query/link.gql"
+import queryLink from '~/graphql/query/link.gql'
+import LinkForms from '~/components/LinkForms.vue'
 export default {
   layout: 'form_default',
-  data() {
+  components: {
+    LinkForms
+  },
+  data () {
     return {
-      link: []
+      link: [],
+      action: 'Edit'
     }
   },
   apollo: {

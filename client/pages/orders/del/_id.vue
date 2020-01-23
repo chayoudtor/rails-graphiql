@@ -1,16 +1,21 @@
 <template>
   <div>
-    {{ $route.query.id }}
+    <OrderForms :action="action" />
   </div>
 </template>
 
 <script>
-import queryOrder from "~/graphql/query/order.gql"
+import OrderForms from '~/components/OrderForms.vue'
+import queryOrder from '~/graphql/query/order.gql'
 export default {
   layout: 'form_default',
-  data() {
+  components: {
+    OrderForms
+  },
+  data () {
     return {
-      order: []
+      order: [],
+      action: 'Delete'
     }
   },
   apollo: {
