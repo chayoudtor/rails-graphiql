@@ -1,11 +1,10 @@
 <template>
   <div>
-    <LinkForms :action="action" />
+    <LinkForms :action="action" :queryData="link" />
   </div>
 </template>
 
 <script>
-import queryLink from '~/graphql/query/link.gql'
 import LinkForms from '~/components/LinkForms.vue'
 export default {
   layout: 'form_default',
@@ -18,15 +17,26 @@ export default {
       action: 'Edit'
     }
   },
-  apollo: {
-    link: {
-      prefetch: true,
-      query: queryLink,
-      valiables () {
-        return {
-          id: parseInt(this.$route.query.id)
+  async mounted () {
+    try {
+      const result = await this.$axios({
+        method: 'POST',
+        data: {
+          query: `
+            query {
+              link(id: ${this.$route.query.id}) {
+                id,
+                url,
+                description
+              }
+            }
+          `
         }
-      }
+      })
+
+      this.link = result.data.data.link
+    } catch (error) {
+      console.error(error)
     }
   }
 }
