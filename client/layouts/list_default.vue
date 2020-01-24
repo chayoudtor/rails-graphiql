@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <Menu />
-    <div class="container bg-light p-3 rounded shadow">
+    <div class="container">
       <nuxt />
     </div>
   </div>
