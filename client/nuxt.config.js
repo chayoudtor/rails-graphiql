@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
   head: {
     title: 'Nuxt Learning !',
     meta: [
@@ -33,8 +33,7 @@ export default {
       }
     }
   },
-  axios: {
-  },
+  axios: {},
   build: {
     extend (config, ctx) {
     }

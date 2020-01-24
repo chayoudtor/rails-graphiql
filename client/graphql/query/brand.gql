@@ -1,4 +1,4 @@
-query Brands($id: ID!) {
+query Brands ($id: ID!){
   brand (id: $id) {
     id,
     name,
