@@ -102,7 +102,6 @@ export default {
     async createForm (name, amount) {
       await this.$axios({
         method: 'POST',
-        url: 'http://localhost:8080/graphql',
         data: {
           query: `
             mutation {
@@ -115,10 +114,10 @@ export default {
           `
         }
       })
-        .$then(
+        .then(
           window.location.href = '/brands'
         )
-        .$catch(
+        .catch(
           function (error) {
             return alert(error)
           }
@@ -131,7 +130,6 @@ export default {
 
       await this.$axios({
         method: 'POST',
-        url: 'http://localhost:8080/graphql',
         data: {
           query: `
             mutation {
@@ -142,10 +140,10 @@ export default {
           `
         }
       })
-        .$then(
+        .then(
           window.location.href = '/brands'
         )
-        .$catch(
+        .catch(
           function (error) {
             return alert(error)
           }
@@ -158,7 +156,6 @@ export default {
       if (conf) {
         await this.$axios({
           method: 'POST',
-          url: 'http://localhost:8080/graphql',
           data: {
             query: `
               mutation {
@@ -169,10 +166,10 @@ export default {
             `
           }
         })
-          .$then(
+          .then(
             window.location.href = '/brands'
           )
-          .$catch(
+          .catch(
             function (error) {
               return alert(error)
             }

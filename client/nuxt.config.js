@@ -33,7 +33,9 @@ export default {
       }
     }
   },
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8080/graphql'
+  },
   build: {
     extend (config, ctx) {
     }
