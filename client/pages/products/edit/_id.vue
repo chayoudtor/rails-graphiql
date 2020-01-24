@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ProductForms :action="action" />
+    <ProductForms :action="action" :queryData="product" />
   </div>
 </template>
 
 <script>
 import ProductForms from '~/components/ProductForms.vue'
-import queryProduct from '~/graphql/query/product.gql'
+
 export default {
   layout: 'form_default',
   components: {
@@ -18,15 +18,26 @@ export default {
       action: 'Edit'
     }
   },
-  apollo: {
-    product: {
-      prefetch: true,
-      query: queryProduct,
-      valiables () {
-        return {
-          id: parseInt(this.$route.query.id)
+  async mounted () {
+    try {
+      const result = await this.$axios({
+        method: 'POST',
+        data: {
+          query: `
+                  query {
+                    product(id: ${parseInt(this.$route.query.id)}){
+                      id,
+                      name,
+                      description,
+                      amount
+                    }
+                  }
+                `
         }
-      }
+      })
+      this.product = result.data.data.product
+    } catch (error) {
+      console.error(error)
     }
   }
 }

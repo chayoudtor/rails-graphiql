@@ -3,20 +3,20 @@
     <tbody>
       <tr>
         <td>Name</td>
-        <td>
-          <a>{{ queryData.name }}</a>
-        </td>
+        <td><a>{{ queryData.name }}</a></td>
+      </tr>
+      <tr>
+        <td>Descriptsion</td>
+        <td><a>{{ queryData.description }}</a></td>
       </tr>
       <tr>
         <td>Amount</td>
-        <td>
-          <a>{{ queryData.amount }}</a>
-        </td>
+        <td><a>{{ queryData.amount }}</a></td>
       </tr>
       <tr>
         <td colspan="2">
-          <button @click="deleteForm" class="btn btn-outline-dark btn-sm">
-            Delete brand
+          <button @click="deleteForm" class="btn btn-sm btn-outline-dark">
+            Delete product
           </button>
         </td>
       </tr>
@@ -30,27 +30,27 @@ export default {
   methods: {
     async deleteForm () {
       const id = this.$route.query.id
-      const conf = confirm(`are you sure to remove this item ?`)
+      const conf = confirm('are youd sure to delete this item ?')
 
       if (conf) {
         await this.$axios({
           method: 'POST',
           data: {
             query: `
-              mutation {
-                deleteBrand (id: ${parseInt(id)}) {
-                  id
-                }
-              }
-            `
+                    mutation {
+                      deleteProduct (id: ${parseInt(id)}) {
+                        id
+                      }
+                    }
+                  `
           }
         })
           .then(
-            window.location.href = '/brands'
+            window.location.href = '/products'
           )
           .catch(
             function (error) {
-              return alert(error)
+              console.error(error)
             }
           )
       }

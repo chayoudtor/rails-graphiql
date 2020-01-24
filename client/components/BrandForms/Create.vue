@@ -1,5 +1,5 @@
 <template>
-  <table class="table">
+  <table class="table table-sm">
     <tbody>
       <tr>
         <td>Name</td>
@@ -15,7 +15,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button class="btn btn-info btn-sm" @click="createForm">
+          <button @click="createForm" class="btn btn-info btn-sm">
             Create brand
           </button>
         </td>

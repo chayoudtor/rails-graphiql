@@ -3,7 +3,7 @@
     <h4 class="mb-3">
       {{ $route.name.charAt(0).toUpperCase() + $route.name.slice(1) }} Lists
     </h4>
-    <table class="table table-sm table-default mb-2 mt-2">
+    <table class="table table-sm table-sm table-default mb-2 mt-2">
       <tbody>
         <tr v-for="lists in listQuery" :key="listQuery.indexOf(lists)">
           <td v-for="value in Object.keys(lists).filter(filterColumn)" :key="Object.keys(lists).indexOf(value)">
