@@ -1,30 +1,35 @@
 <template>
   <div class="container bg-light p-2 shadow">
     <h3>Order {{ $attrs.action }}</h3>
-    <form action="" method="post">
-      <table>
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td><input id="" class="form-control form-control-sm" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Product</td>
-            <td><input id="" class="form-control form-control-sm" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Amount</td>
-            <td><input id="" class="form-control form-control-sm" type="number" name=""></td>
-          </tr>
-          <tr>
-            <td>
-              <button class="btn btn-sm btn-primary">
-                {{ $attrs.action }}
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
+
+    <!-- Create -->
+    <div v-if="$attrs.action == 'Create'">
+      <Create />
+    </div>
+
+    <!-- Edit -->
+    <div v-if="$attrs.action == 'Edit'">
+      <Edit :queryData="queryData" />
+    </div>
+
+    <!-- Delete -->
+    <div v-if="$attrs.action == 'Delete'">
+      <Delete :queryData="queryData" />
+    </div>
   </div>
 </template>
+
+<script>
+import Create from './OrderForms/Create'
+import Edit from './OrderForms/Edit'
+import Delete from './OrderForms/Delete'
+
+export default {
+  components: {
+    Create,
+    Edit,
+    Delete
+  },
+  props: ['queryData']
+}
+</script>

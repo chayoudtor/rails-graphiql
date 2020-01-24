@@ -1,12 +1,11 @@
 <template>
   <div>
-    <OrderForms :action="action" />
+    <OrderForms :action="action" :queryData="order" />
   </div>
 </template>
 
 <script>
 import OrderForms from '~/components/OrderForms.vue'
-import queryOrder from '~/graphql/query/order.gql'
 export default {
   layout: 'form_default',
   components: {
@@ -18,15 +17,26 @@ export default {
       action: 'Edit'
     }
   },
-  apollo: {
-    order: {
-      prefetch: true,
-      query: queryOrder,
-      valiables () {
-        return {
-          id: parseInt(this.$route.query.id)
+  async mounted () {
+    try {
+      const result = await this.$axios({
+        method: 'POST',
+        data: {
+          query: `
+                  query {
+                    order(id: ${parseInt(this.$route.query.id)}) {
+                      id,
+                      name,
+                      product,
+                      amount
+                    }
+                  }
+                `
         }
-      }
+      })
+      this.order = result.data.data.order
+    } catch (error) {
+      console.error(error)
     }
   }
 }
