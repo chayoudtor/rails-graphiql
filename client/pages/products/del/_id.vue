@@ -37,7 +37,7 @@ export default {
       })
       this.product = result.data.data.product
     } catch (error) {
-      console.error(error)
+      alert(error)
     }
   }
 }

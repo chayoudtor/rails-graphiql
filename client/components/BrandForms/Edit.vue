@@ -26,7 +26,12 @@
 
 <script>
 export default {
-  props: ['queryData'],
+  props: {
+    queryData: {
+      type: Array,
+      default: Array
+    }
+  },
   methods: {
     async updateForm () {
       const id = this.$route.query.id

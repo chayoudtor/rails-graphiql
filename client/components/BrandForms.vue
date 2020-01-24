@@ -30,6 +30,11 @@ export default {
     Edit,
     Delete
   },
-  props: ['queryData']
+  props: {
+    queryData: {
+      type: Array,
+      default: Array
+    }
+  }
 }
 </script>

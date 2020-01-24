@@ -36,7 +36,7 @@ export default {
       })
       this.order = result.data.data.order
     } catch (error) {
-      console.error(error)
+      alert(error)
     }
   }
 }

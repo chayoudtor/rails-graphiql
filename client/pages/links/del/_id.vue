@@ -36,7 +36,7 @@ export default {
 
       this.link = result.data.data.link
     } catch (error) {
-      console.error(error)
+      alert(error)
     }
   }
 }

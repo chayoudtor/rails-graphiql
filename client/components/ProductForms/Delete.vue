@@ -26,7 +26,12 @@
 
 <script>
 export default {
-  props: ['queryData'],
+  props: {
+    queryData: {
+      type: Array,
+      default: Array
+    }
+  },
   methods: {
     async deleteForm () {
       const id = this.$route.query.id
@@ -50,7 +55,7 @@ export default {
           )
           .catch(
             function (error) {
-              console.error(error)
+              alert(error)
             }
           )
       }
