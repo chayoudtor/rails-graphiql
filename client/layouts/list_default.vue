@@ -11,6 +11,7 @@
 import Menu from '~/components/NavBar.vue'
 
 export default {
+  middleware: 'authenticated',
   components: {
     Menu
   }
@@ -19,7 +20,7 @@ export default {
 
 <style scoped>
 .content {
-    background-color: lightgray;
+    background-color: rgb(235, 235, 235);
     min-height: 100vh;
 }
 </style>

@@ -15,8 +15,7 @@ export default {
   loading: { color: '#fff' },
   css: [
   ],
-  plugins: [
-  ],
+  plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
@@ -24,7 +23,8 @@ export default {
   modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    '@nuxtjs/auth'
   ],
   apollo: {
     clientConfigs: {
@@ -36,6 +36,7 @@ export default {
   axios: {
     baseURL: 'http://localhost:8080/graphql'
   },
+  auth: {},
   build: {
     extend (config, ctx) {
     }

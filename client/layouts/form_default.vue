@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  middleware: 'authenticated',
   methods: {
     backTo: () => {
       history.back()
