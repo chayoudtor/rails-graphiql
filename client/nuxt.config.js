@@ -15,7 +15,10 @@ export default {
   loading: { color: '#fff' },
   css: [
   ],
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/cookie-storage.js' },
+    { src: '~/plugins/vue-notifications', mode: 'client' }
+  ],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
