@@ -15,7 +15,7 @@ export default {
   loading: { color: '#fff' },
   css: [
   ],
-  plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
+  plugins: [],
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
@@ -37,6 +37,7 @@ export default {
     baseURL: 'http://localhost:8080/graphql'
   },
   auth: {},
+  localforage: {},
   build: {
     extend (config, ctx) {
     }
