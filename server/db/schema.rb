@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 2020_01_28_030440) do
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
+    t.string "name", unique: true
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "links", force: :cascade do |t|
-    t.string "url"
+    t.string "url", unique: true
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 2020_01_28_030440) do
 
   create_table "members", force: :cascade do |t|
     t.string "name"
+    t.string "email", unique: true
     t.string "auth"
-    t.string "username"
+    t.string "username", unique: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -25,6 +25,15 @@ module Types
     field :member,   MemberType,  null: false do
       argument :id, ID, required: true
     end
+    field :member_name,   [MemberType],  null: false do
+      argument :name, String, required: true
+    end
+    field :member_email,   [MemberType],  null: false do
+      argument :email, String, required: true
+    end
+    field :member_auth,   [MemberType],  null: false do
+      argument :auth, String, required: true
+    end
 
     def links
       Link.all
@@ -64,6 +73,18 @@ module Types
 
     def member(id:)
       Member.find(id)
+    end
+
+    def member_name(name:)
+      Member.where(name: name).all
+    end
+
+    def member_email(email:)
+      Member.where(email: email).all
+    end
+
+    def member_auth(auth:)
+      Member.where(auth: auth).all
     end
   end
 end

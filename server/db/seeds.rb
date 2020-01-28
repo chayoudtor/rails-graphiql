@@ -34,8 +34,8 @@ Link.create(url: "nissan.com", description: "Automation site.")
 Link.create(url: "mitsubishi.com", description: "Automation site.")
 
 # Member seed
-Member.create(name: 'Admin', auth: 'admin', username: 'manager')
-Member.create(name: 'Helpdesk', auth: 'admin', username: 'helpdesk')
-Member.create(name: 'Staff', auth: 'staff', username: 'staff-01')
-Member.create(name: 'Staff_02', auth: 'staff', username: 'staff-02')
-Member.create(name: 'Guest', auth: 'guest', username: 'guest')
+Member.create(name: 'Admin', email: 'admin@test.local', auth: 'admin', username: 'manager')
+Member.create(name: 'Helpdesk', email: 'helpdesk@test.local', auth: 'admin', username: 'helpdesk')
+Member.create(name: 'Staff', email: 'staff@test.local', auth: 'staff', username: 'staff-01')
+Member.create(name: 'Staff_02', email: 'staff_02@test.local', auth: 'staff', username: 'staff-02')
+Member.create(name: 'Guest', email: 'guest@test.local', auth: 'guest', username: 'guest')
