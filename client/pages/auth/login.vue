@@ -1,8 +1,11 @@
 <template>
   <div class="col-md-8 col-lg-6">
     <div v-if="error !== ''" class="alert alert-danger shadow-sm d-flex justify-content-between" role="alert">
+      <span />
       <a>{{ error }}</a>
-      <a @click="clearError" class="close-btn">( x )</a>
+      <button @click="clearError" type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <div class="bg-light rounded shadow p-4">
       <div class="form-group text-center">
@@ -56,6 +59,7 @@ export default {
           })
           this.$store.commit('setAuth', authUser.data.data.memberEmail[0].auth)
           this.$store.commit('setUsername', authUser.data.data.memberEmail[0].username)
+          this.$store.commit('setMessage', `Welcome back "${authUser.data.data.memberEmail[0].username}" .`)
           this.$store.commit('isLoggedin')
           this.$router.push('/')
         } catch (e) {

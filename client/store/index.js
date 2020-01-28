@@ -1,7 +1,8 @@
 export const state = () => ({
   loggedin: false,
   userAuth: '',
-  userName: ''
+  userName: '',
+  welcomeMessage: ''
 })
 
 export const mutations = {
@@ -14,9 +15,13 @@ export const mutations = {
   setUsername (state, name) {
     state.userName = name
   },
+  setMessage (state, message) {
+    state.welcomeMessage = message
+  },
   clearState (state) {
     state.loggedin = false
     state.userAuth = ''
     state.userName = ''
+    state.welcomeMessage = ''
   }
 }

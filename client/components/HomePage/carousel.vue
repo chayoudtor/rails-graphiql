@@ -1,0 +1,29 @@
+<template>
+  <div class="col-12 mb-3">
+    <b-carousel
+      id="carousel-fade"
+      style="text-shadow: 0px 0px 2px #000"
+      fade
+      indicators
+      img-width="1024"
+      img-height="480"
+    >
+      <b-carousel-slide
+        caption="Brand"
+        img-src="https://picsum.photos/1024/480/?image=5"
+      />
+      <b-carousel-slide
+        caption="Product"
+        img-src="https://picsum.photos/1024/480/?image=6"
+      />
+      <b-carousel-slide
+        caption="Order"
+        img-src="https://picsum.photos/1024/480/?image=7"
+      />
+      <b-carousel-slide
+        caption="Link"
+        img-src="https://picsum.photos/1024/480/?image=8"
+      />
+    </b-carousel>
+  </div>
+</template>
