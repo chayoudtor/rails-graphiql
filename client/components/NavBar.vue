@@ -26,7 +26,7 @@ export default {
   }),
   methods: {
     logout () {
-      this.$store.commit('isLoggedin')
+      this.$store.commit('clearState')
       this.$router.push('/auth/login')
     }
   }

@@ -17,8 +17,8 @@
 export default {
   middleware: 'authenticated',
   methods: {
-    backTo: () => {
-      history.back()
+    backTo () {
+      this.$router.push('/')
     }
   }
 }

@@ -1,22 +1,28 @@
 <template>
-  <div class="p-4 bg-light col-md-6 col-lg-5 shadow rounded">
-    <div class="form-group text-center">
-      <small class="h3">Sign In</small>
+  <div class="col-md-8 col-lg-6">
+    <div v-if="error !== ''" class="alert alert-danger shadow-sm d-flex justify-content-between" role="alert">
+      <a>{{ error }}</a>
+      <a @click="clearError" class="close-btn">( x )</a>
     </div>
-    <div class="form-group">
-      <label for="email">Email input</label>
-      <input id="email" class="form-control" placeholder="E-mail" type="email">
-    </div>
+    <div class="bg-light rounded shadow p-4">
+      <div class="form-group text-center">
+        <small class="h3">Sign In</small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email input</label>
+        <input id="email" v-model="email" class="form-control" placeholder="E-mail" type="email">
+      </div>
 
-    <div class="form-group">
-      <label for="password">Password input</label>
-      <input id="password" class="form-control" placeholder="Password" type="password">
-    </div>
+      <div class="form-group">
+        <label for="password">Password input</label>
+        <input id="password" class="form-control" placeholder="Password" type="password">
+      </div>
 
-    <div class="form-group text-center">
-      <button @click="login" class="btn btn-dark btn-block">
-        SIGN IN
-      </button>
+      <div class="form-group text-center">
+        <button @click="login" class="btn btn-dark btn-block">
+          SIGN IN
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -25,11 +31,47 @@
 
 export default {
   layout: 'auth_default',
+  data () {
+    return {
+      email: '',
+      error: ''
+    }
+  },
   methods: {
-    login () {
-      this.$store.commit('isLoggedin')
-      this.$router.push('/')
+    async login () {
+      if (this.$data.email !== '') {
+        try {
+          const authUser = await this.$axios({
+            method: 'POST',
+            data: {
+              query: `
+                query {
+                  memberEmail(email: "${this.$data.email}") {
+                    auth,
+                    username
+                  }
+                }
+              `
+            }
+          })
+          this.$store.commit('setAuth', authUser.data.data.memberEmail[0].auth)
+          this.$store.commit('setUsername', authUser.data.data.memberEmail[0].username)
+          this.$store.commit('isLoggedin')
+          this.$router.push('/')
+        } catch (e) {
+          this.$data.error = `You input an Invalid "Email" or "Password" !`
+        }
+      }
+    },
+    clearError () {
+      this.$data.error = ''
     }
   }
 }
 </script>
+
+<style>
+.close-btn {
+  cursor: pointer;
+}
+</style>
