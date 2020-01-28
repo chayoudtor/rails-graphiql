@@ -32,3 +32,10 @@ Link.create(url: "honda.com", description: "Automation site.")
 Link.create(url: "mazda.com", description: "Automation site.")
 Link.create(url: "nissan.com", description: "Automation site.")
 Link.create(url: "mitsubishi.com", description: "Automation site.")
+
+# Member seed
+Member.create(name: 'Admin', auth: 'admin', username: 'manager')
+Member.create(name: 'Helpdesk', auth: 'admin', username: 'helpdesk')
+Member.create(name: 'Staff', auth: 'staff', username: 'staff-01')
+Member.create(name: 'Staff_02', auth: 'staff', username: 'staff-02')
+Member.create(name: 'Guest', auth: 'guest', username: 'guest')

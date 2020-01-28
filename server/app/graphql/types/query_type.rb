@@ -21,6 +21,11 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :members,  [MemberType],  null: false
+    field :member,   MemberType,  null: false do
+      argument :id, ID, required: true
+    end
+
     def links
       Link.all
     end
@@ -51,6 +56,14 @@ module Types
 
     def order(id:)
       Order.find(id)
+    end
+
+    def members
+      Member.all
+    end
+
+    def member(id:)
+      Member.find(id)
     end
   end
 end
